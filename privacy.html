@@ -10,23 +10,111 @@
   h2 { font-size: 16px; margin-top: 28px; }
   .updated { color: #666; font-size: 14px; margin-top: -8px; }
   ul { padding-left: 20px; }
+  .langs { display: flex; gap: 8px; margin-bottom: 24px; }
+  .langs button { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc; background: #fff; color: #1d1f20; cursor: pointer; }
+  .langs button[aria-current="true"] { background: #1d1f20; color: #fff; border-color: #1d1f20; }
 </style>
 </head>
 <body>
-  <h1>Privacy Policy for Play Clever</h1>
-  <p class="updated">Last updated: August 15, 2026</p>
+  <nav class="langs" aria-label="Language">
+    <button type="button" data-lang="en" aria-current="true">English</button>
+    <button type="button" data-lang="fr">Français</button>
+    <button type="button" data-lang="es">Español</button>
+    <button type="button" data-lang="it">Italiano</button>
+  </nav>
 
-  <p>Play Clever does not collect, transmit, store remotely, or share any personal data. All information you enter — player names, match results, and statistics — is stored only in a local database on your device and is never sent anywhere.</p>
+  <div data-content="en" lang="en">
+    <h1>Privacy Policy for Play Clever</h1>
+    <p class="updated">Last updated: August 15, 2026</p>
 
-  <h2>Specifically</h2>
-  <ul>
-    <li>Play Clever has no user accounts and no login.</li>
-    <li>Play Clever makes no network requests of any kind.</li>
-    <li>Play Clever includes no third-party analytics, advertising, or tracking SDKs.</li>
-    <li>All match data can be permanently deleted by deleting the app from your device.</li>
-  </ul>
+    <p>Play Clever does not collect, transmit, store remotely, or share any personal data. All information you enter — player names, match results, and statistics — is stored only in a local database on your device and is never sent anywhere.</p>
 
-  <h2>Contact</h2>
-  <p>If you have questions about this policy, contact <a href="mailto:support@playclever.eu">support@playclever.eu</a>.</p>
+    <h2>Specifically</h2>
+    <ul>
+      <li>Play Clever has no user accounts and no login.</li>
+      <li>Play Clever makes no network requests of any kind.</li>
+      <li>Play Clever includes no third-party analytics, advertising, or tracking SDKs.</li>
+      <li>All match data can be permanently deleted by deleting the app from your device.</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>If you have questions about this policy, contact <a href="mailto:support@playclever.eu">support@playclever.eu</a>.</p>
+  </div>
+
+  <div data-content="fr" lang="fr" hidden>
+    <h1>Politique de confidentialité pour Play Clever</h1>
+    <p class="updated">Dernière mise à jour : 15 août 2026</p>
+
+    <p>Play Clever ne collecte, ne transmet, ne stocke à distance et ne partage aucune donnée personnelle. Toutes les informations que vous saisissez — noms des joueurs, résultats des matchs et statistiques — sont stockées uniquement dans une base de données locale sur votre appareil et ne sont jamais envoyées où que ce soit.</p>
+
+    <h2>Spécifiquement</h2>
+    <ul>
+      <li>Play Clever n'a ni compte utilisateur ni connexion.</li>
+      <li>Play Clever n'effectue aucune requête réseau, quelle qu'elle soit.</li>
+      <li>Play Clever n'inclut aucun SDK tiers d'analyse, de publicité ou de suivi.</li>
+      <li>Toutes les données de match peuvent être définitivement supprimées en supprimant l'application de votre appareil.</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>Pour toute question concernant cette politique, contactez <a href="mailto:support@playclever.eu">support@playclever.eu</a>.</p>
+  </div>
+
+  <div data-content="es" lang="es" hidden>
+    <h1>Política de privacidad de Play Clever</h1>
+    <p class="updated">Última actualización: 15 de agosto de 2026</p>
+
+    <p>Play Clever no recopila, transmite, almacena de forma remota ni comparte ningún dato personal. Toda la información que introduces — nombres de jugadores, resultados de partidos y estadísticas — se guarda únicamente en una base de datos local en tu dispositivo y nunca se envía a ningún sitio.</p>
+
+    <h2>En concreto</h2>
+    <ul>
+      <li>Play Clever no tiene cuentas de usuario ni inicio de sesión.</li>
+      <li>Play Clever no realiza ninguna solicitud de red de ningún tipo.</li>
+      <li>Play Clever no incluye ningún SDK de análisis, publicidad o seguimiento de terceros.</li>
+      <li>Todos los datos de los partidos se pueden eliminar de forma permanente desinstalando la aplicación de tu dispositivo.</li>
+    </ul>
+
+    <h2>Contacto</h2>
+    <p>Si tienes preguntas sobre esta política, contacta con <a href="mailto:support@playclever.eu">support@playclever.eu</a>.</p>
+  </div>
+
+  <div data-content="it" lang="it" hidden>
+    <h1>Informativa sulla privacy di Play Clever</h1>
+    <p class="updated">Ultimo aggiornamento: 15 agosto 2026</p>
+
+    <p>Play Clever non raccoglie, trasmette, archivia da remoto né condivide alcun dato personale. Tutte le informazioni inserite — nomi dei giocatori, risultati delle partite e statistiche — vengono salvate solo in un database locale sul tuo dispositivo e non vengono mai inviate altrove.</p>
+
+    <h2>Nello specifico</h2>
+    <ul>
+      <li>Play Clever non prevede account utente né accesso.</li>
+      <li>Play Clever non effettua alcuna richiesta di rete di alcun tipo.</li>
+      <li>Play Clever non include SDK di terze parti per analisi, pubblicità o tracciamento.</li>
+      <li>Tutti i dati delle partite possono essere eliminati definitivamente disinstallando l'app dal dispositivo.</li>
+    </ul>
+
+    <h2>Contatti</h2>
+    <p>Per domande su questa informativa, contatta <a href="mailto:support@playclever.eu">support@playclever.eu</a>.</p>
+  </div>
+
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll('.langs button');
+      var contents = document.querySelectorAll('[data-content]');
+      function show(lang) {
+        contents.forEach(function (el) { el.hidden = el.getAttribute('data-content') !== lang; });
+        buttons.forEach(function (b) { b.setAttribute('aria-current', String(b.getAttribute('data-lang') === lang)); });
+        document.documentElement.lang = lang;
+        try { localStorage.setItem('playclever-lang', lang); } catch (e) {}
+      }
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () { show(b.getAttribute('data-lang')); });
+      });
+      var saved = null;
+      try { saved = localStorage.getItem('playclever-lang'); } catch (e) {}
+      var supported = ['en', 'fr', 'es', 'it'];
+      var browserLang = (navigator.language || 'en').slice(0, 2);
+      var initial = saved || (supported.indexOf(browserLang) !== -1 ? browserLang : 'en');
+      show(initial);
+    })();
+  </script>
 </body>
 </html>
